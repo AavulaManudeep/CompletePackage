@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function sayhello()
+{
+	var name = document.getElementById("name").value;
+	/* var request = init();
+	var name = document.getElementById("name").value;
+	request.open("GET","hello.jsp",true);
+	request.send();
+	request.onreadystatechange=processResponse;
+	
+	 function processResponse(){
+		if(request.status == 200 &&request.readyState == 4)
+			{
+				console.log(request.responseText);
+			}
+	} */
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+	
+		
+		if(this.status == 200 && this.readyState == 4)
+		{
+			document.getElementById("demo").innerHTML= this.responseText;
+		}
+	};
+	xhttp.open("POST","hello.jsp",true);
+	xhttp.setRequestHeader("contex-type", "application/x-www-form-urlencoded");
+	xhttp.send("name=Manu");
+	
+}
+	/* function init()
+	{
+	var httprequest = null;
+	
+		if(window.XMLHttpRequest)
+			{
+				httprequest = new XMLHttpRequest();
+			}
+		else if (window.ActiveXObject)
+			{
+			httprequest = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+	return httprequest;
+} */
+</script>
+</head>
+<body>
+<input type="text" id="name"></input>
+<input type="button" id="btn" value="OK" onClick="sayhello()"></input>
+<h1 id ="demo">Change</h1>
+</body>
+</html>
+
+
+ -->
+ <!DOCTYPE html>
+    <html>  
+    <head>  
+    <meta charset="UTF-8">
+    <script>  
+    var request;  
+    function sendInfo()  
+    {  
+    var v=document.vinform.t1.value;  
+    var url="hello.jsp?val="+v;  
+      
+    if(window.XMLHttpRequest){  
+    request=new XMLHttpRequest();  
+    }  
+    else if(window.ActiveXObject){  
+    request=new ActiveXObject("Microsoft.XMLHTTP");  
+    }  
+      
+    try  
+    {  
+    request.onreadystatechange=getInfo;  
+    request.open("GET",url,true);  
+    request.send();  
+    }  
+    catch(e)  
+    {  
+    alert("Unable to connect to server");  
+    }  
+    }  
+      
+    function getInfo(){  
+    if(request.readyState==4){  
+    var val=request.responseText;  
+    document.getElementById('amit').innerHTML=val;  
+    }  
+    }  
+      
+    </script>  
+    </head>  
+    <body>  
+        <marquee><h1 style="color:red">This is an example of ajax</h1></marquee>  
+    <form name="vinform">  
+    <input type="text" name="t1">  
+    <input type="button" value="ShowTable" onClick="sendInfo()">  
+    </form>  
+      
+    <span id="amit"> </span>  
+      
+    </body>  
+    </html>  

@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package com.accountdetails;
+
+/**
+ * @author manu
+ *
+ */
+public class Mortgage implements Loantypes {
+	private double loanamout;
+	private double intrestrate=0.05;
+	/**
+	 * @param loanamout
+	 */
+	public Mortgage()
+	{
+		
+	}
+	public Mortgage(double loanamout) {
+		super();
+		this.loanamout += (loanamout*intrestrate)+loanamout;
+
+	}
+	/* (non-Javadoc)
+	 * @see com.accountdetails.Loantypes#payloan(double)
+	 */
+	@Override
+	public double payloan(double loanpayment) {
+		// TODO Auto-generated method stub
+		return loanamout-=loanpayment;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.accountdetails.Loantypes#checkloan()
+	 */
+	@Override
+	public double checkloan() {
+		// TODO Auto-generated method stub
+		return loanamout;
+	}
+
+
+}

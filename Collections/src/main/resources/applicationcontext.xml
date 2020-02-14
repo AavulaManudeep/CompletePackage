@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="details" class="com.collections.Studentinfo">
+	<constructor-arg value="1"></constructor-arg>
+	<constructor-arg value="Manu"></constructor-arg>
+	<constructor-arg value="Computer Science"></constructor-arg>
+	<constructor-arg>
+	<list>
+	<ref bean="coursedetails"/>
+	<ref bean="coursedetails1"/>
+	<ref bean="coursedetails2"/>
+	</list>
+	</constructor-arg>
+	</bean>
+	<bean id="coursedetails" class="com.collections.course.CourseInfo">
+	<constructor-arg value="111"></constructor-arg>
+	<constructor-arg value="CS"></constructor-arg>
+	<constructor-arg value="Computer Networking"></constructor-arg>
+	</bean>
+	
+	<bean id="coursedetails1" class="com.collections.course.CourseInfo">
+	<constructor-arg value="222"></constructor-arg>
+	<constructor-arg value="CS"></constructor-arg>
+	<constructor-arg value="Autometa Theory"></constructor-arg>
+	</bean>
+	<bean id="coursedetails2" class="com.collections.course.CourseInfo">
+	<constructor-arg value="456"></constructor-arg>
+	<constructor-arg value="GS"></constructor-arg>
+	<constructor-arg value="University Physics"></constructor-arg>
+	</bean>
+	
+	
+	</beans>
